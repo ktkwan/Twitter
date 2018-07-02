@@ -9,6 +9,8 @@
 #import "User.h"
 @interface Tweet : NSObject
 
+
+
 // MARK: Properties
 @property (nonatomic, strong) NSString *idStr; // For favoriting, retweeting & replying
 @property (strong, nonatomic) NSString *text; // Text content of tweet
@@ -21,5 +23,7 @@
 
 // For Retweets
 @property (strong, nonatomic) User *retweetedByUser;  // user who retweeted if tweet is retweet
+
++ (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
 
 @end
