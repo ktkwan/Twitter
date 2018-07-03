@@ -10,4 +10,5 @@
 
 @interface TimelineViewController : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *tweets;
 @end

@@ -10,6 +10,7 @@
 #import "Tweet.h"
 
 
+
 static NSString * const baseURLString = @"https://api.twitter.com";
 static NSString * const consumerKey = @"V5AGmAGpP4tziIYEe7WAmcF5x"; // Enter your consumer key here
 static NSString * const consumerSecret = @"DMI0LfD1UnSxD2zmmpN6CiGF8gXnn7br2EdeuFNaK8D6vl10a0";
@@ -61,7 +62,7 @@ static NSString * const consumerSecret = @"DMI0LfD1UnSxD2zmmpN6CiGF8gXnn7br2Edeu
        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
        [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
 
-       completion(tweetDictionaries, nil);
+       
        
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        

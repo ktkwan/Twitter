@@ -9,10 +9,6 @@
 #import "LoginViewController.h"
 #import "APIManager.h"
 
-@interface LoginViewController ()
-
-@end
-
 @implementation LoginViewController
 
 - (void)viewDidLoad {
