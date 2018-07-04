@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *screenName;
+@property (strong, nonatomic) NSURL *picture;
 
 // Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

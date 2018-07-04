@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *tweetsArray;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 
 
@@ -30,20 +31,46 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-  
+   
+    [self fetchTweets];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+
     // Get timeline
+ 
+}
+
+- (void)fetchTweets{
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweets = [NSMutableArray arrayWithArray:tweets];
             
             [self.tableView reloadData];
-            
+            [self.refreshControl endRefreshing];
+           
             
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
+}
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    // Create NSURL and NSURLRequest
+    
+    
+    
+                                                [self.tableView reloadData];
+                                                
+                                                // Tell the refreshControl to stop spinning
+                                                [refreshControl endRefreshing];
+                                                
+    
+    
 }
 
 
