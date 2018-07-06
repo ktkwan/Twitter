@@ -18,6 +18,7 @@
     
     self.tweet.favorited = YES;
     self.tweet.favoriteCount += 1;
+    self.likeButton.selected = YES;
     [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
@@ -36,6 +37,7 @@
     
     self.tweet.retweeted = YES;
     self.tweet.retweetCount += 1;
+    self.retweetButton.selected = YES;
     [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
         
         if(error){
