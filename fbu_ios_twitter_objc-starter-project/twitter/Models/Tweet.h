@@ -24,5 +24,7 @@
 // For Retweets
 @property (strong, nonatomic) User *retweetedByUser;  // user who retweeted if tweet is retweet
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 
 @end

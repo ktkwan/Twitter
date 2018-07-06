@@ -8,6 +8,7 @@
 
 #import "Tweet.h"
 #import "User.h"
+
 @implementation Tweet
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {

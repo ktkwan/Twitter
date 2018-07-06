@@ -11,13 +11,18 @@
 #import "Tweet.h"
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "ComposeViewController.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSMutableArray *tweetsArray;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+- (IBAction)logOut:(id)sender;
+    
+
 
 
 
@@ -38,7 +43,7 @@
     [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
-
+    
     // Get timeline
  
 }
@@ -50,6 +55,7 @@
             
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
+            
            
             
         } else {
@@ -65,6 +71,7 @@
     
     
                                                 [self.tableView reloadData];
+    
                                                 
                                                 // Tell the refreshControl to stop spinning
                                                 [refreshControl endRefreshing];
@@ -92,15 +99,27 @@
 //    return cell;
 //}
 
-/*
+-(void) tapLogout{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    [[APIManager shared] logout];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
 }
-*/
+
 
 
 
@@ -127,4 +146,61 @@
 
 
 
+- (void)didTweet:(Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
+    
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    
+}
+ 
+/*
+
+- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
+    <#code#>
+}
+
+- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    <#code#>
+}
+
+- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
+    <#code#>
+}
+
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    <#code#>
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    <#code#>
+}
+
+- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    <#code#>
+}
+
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+    <#code#>
+}
+
+- (void)setNeedsFocusUpdate {
+    <#code#>
+}
+*/
+/*
+- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+    <#code#>
+}
+
+- (void)updateFocusIfNeeded {
+    <#code#>
+}
+ */
+
+- (IBAction)logOut:(id)sender {
+    [self tapLogout];
+}
 @end
