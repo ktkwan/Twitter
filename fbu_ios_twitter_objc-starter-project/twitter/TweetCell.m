@@ -16,18 +16,35 @@
     // TODO: Update cell UI
     // TODO: Send a POST request to the POST favorites/create endpoint
     
-    self.tweet.favorited = YES;
-    self.tweet.favoriteCount += 1;
-    self.likeButton.selected = YES;
-    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-        if(error){
-            NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
-        }
-        else{
-            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
-        }
-        [self refreshData];
-    }];
+
+    if (self.tweet.favorited == YES){
+        self.tweet.favoriteCount -= 1;
+        self.tweet.favorited = NO;
+        self.likeButton.selected = NO;
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+            [self refreshData];
+        }];
+    } else {
+        self.tweet.favorited = YES;
+        self.tweet.favoriteCount += 1;
+        self.likeButton.selected = YES;
+        [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+            [self refreshData];
+        }];
+    }
+  
 }
 
 - (IBAction)didTapRetweet:(id)sender {
@@ -35,20 +52,39 @@
     // TODO: Update cell UI
     // TODO: Send a POST request to the POST favorites/create endpoint
     
-    self.tweet.retweeted = YES;
-    self.tweet.retweetCount += 1;
-    self.retweetButton.selected = YES;
-    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+    
+    if (self.tweet.retweeted == YES){
+        self.tweet.retweetCount -= 1;
+        self.tweet.retweeted = NO;
+        self.retweetButton.selected = NO;
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+            [self refreshData];
+        }];
         
-        if(error){
-            NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
-        }
-        else{
-            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
-        }
         
-        [self refreshData];
-    }];
+    } else {
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+        self.retweetButton.selected = YES;
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            
+            if(error){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+            
+            [self refreshData];
+        }];
+    }
+
 }
 
 
