@@ -1,3 +1,4 @@
+
 //
 //  User.m
 //  twitter
@@ -19,6 +20,9 @@
         NSString *pic = dictionary[@"profile_image_url_https"];
         NSURL *profile = [NSURL URLWithString:pic];
         self.picture = profile;
+        self.header = [NSURL URLWithString:dictionary[@"profile_banner_url"]];
+        self.followersCount = [NSString stringWithFormat:@"%@", dictionary[@"followers_count"]];
+        self.followingCount = [NSString stringWithFormat:@"%@", dictionary[@"friends_count"]];
     }
     return self;
 }

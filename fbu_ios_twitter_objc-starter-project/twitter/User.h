@@ -13,6 +13,10 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *screenName;
 @property (strong, nonatomic) NSURL *picture;
+@property (strong, nonatomic) NSURL *header;
+@property (strong, nonatomic) NSString *followingCount;
+@property (strong, nonatomic) NSString *followersCount;
+
 
 // Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

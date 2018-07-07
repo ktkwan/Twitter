@@ -28,4 +28,6 @@
 
 - (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
+- (void)getProfile:(void(^)(User *user, NSError *error))completion;
+
 @end

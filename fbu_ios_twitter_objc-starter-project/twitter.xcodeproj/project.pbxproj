@@ -21,6 +21,9 @@
 		9E8160C920EACEE50019A27B /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160C820EACEE50019A27B /* Tweet.m */; };
 		9E8160D220EBEDA90019A27B /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160D120EBEDA80019A27B /* TweetCell.m */; };
 		9E8160D520EC94920019A27B /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160D420EC94920019A27B /* ComposeViewController.m */; };
+		9E8160D820F01E7A0019A27B /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160D720F01E7A0019A27B /* MentionsViewController.m */; };
+		9E8160DB20F01E8C0019A27B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160DA20F01E8C0019A27B /* ProfileViewController.m */; };
+		9E8160DE20F02AFE0019A27B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8160DD20F02AFE0019A27B /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,12 @@
 		9E8160D120EBEDA80019A27B /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TweetCell.m; path = "/Users/katiekwan/Desktop/Xcode/Twitter/fbu_ios_twitter_objc-starter-project/twitter/TweetCell.m"; sourceTree = "<absolute>"; };
 		9E8160D320EC94920019A27B /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		9E8160D420EC94920019A27B /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		9E8160D620F01E7A0019A27B /* MentionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MentionsViewController.h; sourceTree = "<group>"; };
+		9E8160D720F01E7A0019A27B /* MentionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MentionsViewController.m; sourceTree = "<group>"; };
+		9E8160D920F01E8C0019A27B /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9E8160DA20F01E8C0019A27B /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		9E8160DC20F02AFE0019A27B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		9E8160DD20F02AFE0019A27B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +158,12 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				9E8160D320EC94920019A27B /* ComposeViewController.h */,
 				9E8160D420EC94920019A27B /* ComposeViewController.m */,
+				9E8160D620F01E7A0019A27B /* MentionsViewController.h */,
+				9E8160D720F01E7A0019A27B /* MentionsViewController.m */,
+				9E8160D920F01E8C0019A27B /* ProfileViewController.h */,
+				9E8160DA20F01E8C0019A27B /* ProfileViewController.m */,
+				9E8160DC20F02AFE0019A27B /* DetailsViewController.h */,
+				9E8160DD20F02AFE0019A27B /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -256,13 +271,16 @@
 			files = (
 				9E8160D220EBEDA90019A27B /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				9E8160D820F01E7A0019A27B /* MentionsViewController.m in Sources */,
 				9E8160C320EACD300019A27B /* User.m in Sources */,
+				9E8160DE20F02AFE0019A27B /* DetailsViewController.m in Sources */,
 				9E8160D520EC94920019A27B /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
 				9E8160C920EACEE50019A27B /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				9E8160DB20F01E8C0019A27B /* ProfileViewController.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

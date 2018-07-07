@@ -142,5 +142,16 @@ static NSString * const consumerSecret = @"DMI0LfD1UnSxD2zmmpN6CiGF8gXnn7br2Edeu
     
 }
 
+- (void)getProfile:(void(^)(User *user, NSError *error))completion {
+    [self GET:@"1.1/account/verify_credentials.json" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable userDictionary) {
+        User *user = [[User alloc] initWithDictionary: userDictionary];
+        completion(user, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+    }
+
+
+
 
 @end
