@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *count;
 
 @end
 
@@ -26,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self textViewDidChange:_textView];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -36,6 +39,7 @@
 
 - (void)postTweet{
     NSString *text = self.textView.text;
+    
     [[APIManager shared] postStatusWithText:text completion:^(Tweet *tweet, NSError *error){
         if(error){
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);
@@ -48,6 +52,14 @@
         
     }];
      }
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    
+    NSUInteger length = [textView.text length];
+    
+    _count.text = [NSString stringWithFormat:@"%lu", length];
+}
 
 /*
 #pragma mark - Navigation

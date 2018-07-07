@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **20** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -37,7 +37,7 @@ The following **optional** features are implemented:
 - [X] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
 - [ ] User sees embedded images in tweet if available 
-- [ ] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
+- [X] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
 
@@ -48,11 +48,13 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. More regarding autolayout constraints 
-2. 
+2.  Delegates and data sources
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+
+<img src='/twitter.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
@@ -60,7 +62,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I had challenges because less instructions were given for this project, but I felt I was able to learn more. I had trouble getting to compose tweets, but I was able to ask both the instructors and my peers for help and was able to finally get it to work. 
+I had challenges because less instructions were given for this project, but I felt I was able to learn more. I had trouble getting to compose tweets, but I was able to ask both the instructors and my peers for help and was able to finally get it to work. In addition, I wanted to complete the character count, but I did not have enough time to complete it. I think the aspect that took the longest time for me was using the twitter API to retweet and favorite. 
 
 ## Credits
 
